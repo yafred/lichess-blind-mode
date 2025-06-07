@@ -1,11 +1,9 @@
 ---
 layout: post
-title:  "Recent updates"
+title:  "Lichess blind mode updates - First semester 2025"
 categories: updates
 published: true
 ---
-
-# Updates on Lichess blind mode during first semester 2025
 
 ## Translations
 

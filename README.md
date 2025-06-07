@@ -1,4 +1,6 @@
 
 
 
-https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
+# Lichess blind mode - my notebook
+
+Web site [here](https://yafred.github.io/lichess-blind-mode/)

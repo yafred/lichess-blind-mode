@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Recent updates"
+date:   2025-06-05 18:31:38 +0200
+categories: jekyll update
+published: true
+---
+
+# Updates on Lichess blind mode during first semester 2025
+
+## Translations
+
+This is the beginning of a thorough translation effort. Priority is given to the welcome page, creation of games and the game itself (for the time being, only the feedback is translated, the input command stay in English).
+
+## Commands to navigate quickly to and from the board
+
+In the move input field, you can now type letter b like board to go to the board. Type letter i like input to go back to the move input field (as usual, the board must be in focus mode).
+
+## Option to choose where the actions are during the game
+
+In advanced settings, you can decide to have the actions (abort, resign) before or after the board (motivation: the board is not used by players using a tactile board).
+
+## Improved dialog to create games
+
+The dialogs create a game, play with a friend and play with the computer are now more accessible.
+
+## Announce clocks in a verbal way
+
+The clocks are now announced in natural language.
+
+## Addition of a button to copy current FEN
+
+In game analysis, you can now copy the position and use it in another tool.
+
+## Important additions to broadcast page
+
+  * Information about the tournament and the players.
+  * Addition of navigation between games using a tree structure - group round  game.
+  * Access to chat.
+
+## Display game status in studies
+
+Status was constantly no result.
+
+## Sort results when using scan command in move input field
+
+## Fix move input issue
+
+Notation bxc3 can mean takes with b pawn if lowercase or takes with bishop if uppercase.
+
+## Addition of crazyhouse variant
+
+This was the only variant to accessible in blind mode.
+
+## Improvements
+
+  * Fix players' info display in study and broadcasts. 
+  * Add board mode commands to navigate moves and variation lines.
+  * Add clocks for studies and broadcasts.
+  * Add links to other broadcast groups.
+
+

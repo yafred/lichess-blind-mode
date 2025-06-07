@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Recent updates"
-date:   2025-06-05 18:31:38 +0200
-categories: jekyll update
+categories: updates
 published: true
 ---
 

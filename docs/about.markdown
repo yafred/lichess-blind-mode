@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Nothing yet
+The source of this site is [here](https://github.com/yafred/lichess-blind-mode)

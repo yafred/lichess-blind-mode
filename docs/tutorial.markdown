@@ -1,8 +1,75 @@
----
-layout: page
-title: Tutorial
-permalink: /tutorial
----
+## What's New in Blind Mode
+
+The following section highlights the latest changes and improvements made to Lichess's blind mode, also known as the non-visual user interface (NVUI). It is intended for users who are already familiar with how NVUI works and want to stay up to date with ongoing enhancements. Whether it's a new feature, a bug fix, or a small accessibility improvement, each item is listed with a brief description and a link to the relevant pull request for those interested in technical details. The most recent updates appear at the top of the list, making it easy to check what's new. You can skip to the next heading to begin reading the tutorial.
+
+* **Announce Pieces by Color:** The `p` (piece) command now supports announcing pieces by color using a pseudo-piece symbol:
+  - `p a` announces the location of all **black** pieces.
+  - `p n` announces the location of all **black** knights.
+  - `P A` announces the location of all **white** pieces.
+  - `P N` announces the location of all **white** knights.
+  This allows blind mode users to quickly scan the board for pieces of a specific color.  
+  **[PR #17687](https://github.com/lichess-org/lila/pull/17687)**
+
+* **Puzzle Board Navigation Restored:** Refactored the puzzle board to restore full keyboard navigation in blind mode:  Users can now move around the board using arrow keys while solving puzzles. **[PR #17664](https://github.com/lichess-org/lila/pull/17664)**
+
+* **Case-Insensitive Drops/Promotions:** Blind mode now accepts capital letters for piece notation in Crazyhouse drops and pawn promotions. For example, entering a drop as “N\@f3” or a promotion as “e1=Q” will work (previously NVUI might have only accepted lowercase “n\@f3” or “e1=q”). This makes input more forgiving and intuitive for those accustomed to uppercase piece letters. **[PR #17650](https://github.com/lichess-org/lila/pull/17650)**
+
+* **Layout Order Setting:** Added an option in blind mode, found under the board settings,  to choose the order of “Actions” vs “Board” on the game page. Users can now toggle whether the action buttons (resign, offer draw, etc.) are displayed  before the board or after it, according to their preference, rather than being in a fixed order. **[PR #17573](https://github.com/lichess-org/lila/pull/17573)**
+
+* **Consistent Clock Speech:** The clock announcement feature now uses the same verbal time format introduced in the UI for its spoken output. This refactor means when blind mode “speaks” the clock, it uses the translated, human-friendly format (e.g. “5 minutes 30 seconds”) instead of a raw numeric format, keeping speech and display consistent. **[PR #17473](https://github.com/lichess-org/lila/pull/17473)**
+
+* **Better Board Focus Description:** Improved the description announced when the chessboard receives focus in NVUI. Instead of just reading coordinates, the screen reader will now say “Square \[coordinate]” which provides more context (for example, hearing “Square e4” rather than just “e4”). **[PR #17510](https://github.com/lichess-org/lila/pull/17510)**
+
+* **Localized “Ongoing Games” in Lobby:** The blind mode lobby now uses translated text for the “ongoing games” section. Previously this label was not internationalized; now it reuses existing translations for consistency, so users in all languages will see a properly translated phrase. **[PR #17562](https://github.com/lichess-org/lila/pull/17562)**
+
+* **NVUI Command Help Fix:** Fixed an issue where the list of available NVUI commands (the “help” text for blind mode commands) was not being displayed. After this fix, blind users can once again see the full list of keyboard commands under the appropriate headings as intended. **[PR #17567](https://github.com/lichess-org/lila/pull/17567)**
+
+* **NVUI i18n Module on Client:** Ensured that the new NVUI internationalization module is loaded on the client side as well. This behind-the-scenes change means translation data for blind mode is properly passed to the browser, fixing any missing translations in the NVUI interface. **[PR #17569](https://github.com/lichess-org/lila/pull/17569)**
+
+* **Punctuation for Move Announcements:** Added punctuation to moves in NVUI to aid screen reader pauses. This small change improves how moves are spoken by text-to-speech, ensuring there’s a clear break (for example, after a move is read aloud) so the audio is more understandable. **[PR #17465](https://github.com/lichess-org/lila/pull/17465)**
+
+* **Internationalized Input Commands:** Made blind mode input commands translatable. NVUI commands (like “takeback” or “draw”) are now integrated with Lichess’s i18n system, so they can be typed and recognized in the user’s language and their descriptions are shown in the correct locale. **[PR #17615](https://github.com/lichess-org/lila/pull/17615)**
+
+* **Improved Layout for Game Page:** The blind mode game (round) page layout was reorganized for easier navigation:
+  - The move input form is now placed directly next to the board, allowing quicker navigation between entering moves and hearing board state.
+  - Tooltips on action buttons were removed to prevent redundant screen reader output (e.g., “resign button… resign”).
+  - Quick keyboard commands were added:
+    - Typing `"board"` focuses the board.
+    - Typing `"i"` focuses the input field.  
+  **[PR #17452](https://github.com/lichess-org/lila/pull/17452)**
+
+* **Verbal Clock Announcements:** Blind mode now renders clock times as spoken text rather than as digits. For example, a clock showing “01:30” will be announced as “1 hour, 30 minutes” instead of “01 colon 30”. This unification (used in both game and analysis) helps screen readers and uses existing translations for time units. **[PR #17442](https://github.com/lichess-org/lila/pull/17442)**
+
+* **Sorted ‘Scan’ Command Output:** The blind mode “scan” command (which lists pieces on the board) now outputs in a sorted, consistent order. This makes it easier for visually impaired users to parse the list of pieces without a confusing order. **[PR #17190](https://github.com/lichess-org/lila/pull/17190)**
+
+* **Game Status in broadcasts and Study Mode:** Blind mode will now announce or display the game result/status when viewing a study chapter. Previously, results (like checkmate or draw) in study replays were missing – now the NVUI shows these outcomes, partially addressing that issue. **[PR #17312](https://github.com/lichess-org/lila/pull/17312)**
+
+* **Broadcast Navigation Controls:** Introduced accessible navigation for broadcasts in blind mode. NVUI now provides dropdowns/combo boxes to switch between broadcast groups, rounds, and games, allowing visually impaired users to navigate multi-game broadcasts. It also improved focus handling (auto-focusing the new selection) so screen readers don’t reset to the top of the page. **[PR #17341](https://github.com/lichess-org/lila/pull/17341)**
+
+* **Unusual Results Announced:** Added support for “unusual” game results in blind mode broadcasts and studies. Beyond standard checkmates or draws, NVUI will now also announce special outcomes (e.g. time outs, aborts, etc.), ensuring all game results are conveyed to the user. **[PR #17347](https://github.com/lichess-org/lila/pull/17347)**
+
+* **Chat in Analysis NVUI:** The chat room is now included in the blind mode analysis/study page. NVUI adds the chat at the end of the page, so blind users can read and participate in study or broadcast chat using their screen reader. **[PR #17387](https://github.com/lichess-org/lila/pull/17387)**
+
+* **Tournament Info and Players List:** Tournament pages in blind mode now show tournament details and the player list (loaded lazily for performance). The tournament info is placed at the bottom of the NVUI page, making sure blind users can access standings and participants in an “immersive” way via screen reader. **[PR #17401](https://github.com/lichess-org/lila/pull/17401)**
+
+* **“Copy FEN” Button:** Added an accessible “Copy FEN” button in analysis mode for blind users. In NVUI, users can now copy the FEN of the current position with a single button press, addressing a missing feature in the analysis board for blind mode. **[PR #17407](https://github.com/lichess-org/lila/pull/17407)**
+
+* **Crazyhouse Support in Blind Mode:** Blind mode now supports the Crazyhouse variant. This update allows blind users to play Crazyhouse (with piece drops) and includes code clean-ups like better input handling and fixes for selection issues in NVUI. **[PR #16997](https://github.com/lichess-org/lila/pull/16997)**
+
+* **Choose Color in Blind Mode:** Restored the option for a blind mode player to select their own color when creating a game (a feature that had been lost in a regression). Blind users can again choose to play as White or Black instead of being forced into random color. **[PR #17017](https://github.com/lichess-org/lila/pull/17017)**
+
+* **Board Fully Visible on Small Screens:** Ensured the entire 8×8 board is displayed in blind mode even on small screens. Squares now scale to 1/8 of the screen width (or of 500px on larger screens) so that no ranks/files are cut off in NVUI. This works mostly on landscape orientation. **[PR #17025](https://github.com/lichess-org/lila/pull/17025)**
+
+* **Input Disambiguation Fix:** Fixed an issue with blind mode move input where ambiguous moves weren’t handled properly. This resolves problems entering moves that require disambiguation (such as two identical pieces moving) so that NVUI recognizes them correctly. **[PR #17142](https://github.com/lichess-org/lila/pull/17142)**
+
+* **Various NVUI Improvements:** A collection of tweaks added multiple blind mode features:
+  - Fixed the display of player info in studies and broadcasts.
+  - Added keyboard commands to jump to next/previous moves or variations while focusing on the board: shift + a and shift + d to navigate moves, alt + shift + a and alt + shift + d to navigate lines.
+  - Clock announcements now work in studies and broadcasts.
+  - Added combo Box  to switch between different broadcast games more easily.  
+  **[PR #16864](https://github.com/lichess-org/lila/pull/16864)**
+
+* **Fixed Blind Mode in Broadcasts:** Resolved a bug that caused the blind mode  to crash during broadcast games. This fix ensures blind mode works correctly when viewing live broadcasts. **[PR #16856](https://github.com/lichess-org/lila/pull/16856)**
 
 ## Introduction
 
@@ -201,7 +268,7 @@ Before completing registration, you must:
 * **Agree** to follow all Lichess rules and policies.
 * **Check the “I am human” box** to confirm you're not a bot (this uses **hCaptcha**, which is partially accessible and offers options for visually impaired users).
 
-Registration is completely free and takes just a minute. Once completed, you can start playing right away — **no email verification is required** to activate your account.
+Registration is completely free and takes just a minute. Once completed, you can start playing right away.
 
 #### A Note on hCaptcha Accessibility
 
@@ -234,7 +301,7 @@ Once you activate that link, you can customize the following options:
 
 Use the arrow keys or Tab to navigate to the **variant selector**. Lichess supports several chess variants, all of which are accessible using screen readers. Here's a list of the available options:
 
-* **Standard**
+* **[Standard](https://en.wikipedia.org/wiki/Rules_of_chess)**
   The traditional version of chess played worldwide. Most players choose this variant.
 
 * **[Chess960 (Fischer Random)](https://lichess.org/variant/chess960)**
@@ -336,7 +403,7 @@ From the **main page**:
 3. Press **Space** on that number. (Even if it’s not labeled as a link, it works.)
 4. This opens the challenge details, where you can then choose **Accept** or **Decline**.
 
-3.3 Play with the Computer
+### 3.3 Play with the Computer
 
 Choose this option to play against a Lichess chess engine.
 
@@ -539,7 +606,7 @@ This setting controls how the piece itself is spoken when you land on a square c
 > * Name: `pawn`
 > * white uppercase Name: `Pawn`
 
-#### • Piece Prefix Style
+#### Piece Prefix Style
 
 This determines how the **color of the piece** is announced:
 
@@ -571,7 +638,7 @@ This controls the **order** in which the square and the piece are spoken when yo
 * **None**:
   The square name is **not included** — only the piece is announced.
 
-#### • Board Layout
+#### Board Layout
 
 This controls the **HTML structure** of the board and how it behaves with your screen reader:
 
@@ -619,10 +686,11 @@ Typing one of these notations in the command field and pressing **Enter** will e
 
 In addition to moves, you can type a variety of **single-letter or word-based commands** in the command field. These commands provide game information or allow you to navigate the position. Here's a full list with explanations:
 
-* **`C`** – Read both clocks (your time and your opponent’s). Your time is announced first. You can also type the word Clock if you wish.
-* **`L`** – Announce the **last move** played on the board. You can also type the word "last" Instead.
+* **`C [clock]`** – Read both clocks (your time and your opponent’s). Your time is announced first. You can also type the word Clock if you wish.
+* **`L [last]`** – Announce the **last move** played on the board. You can also type the word "last" Instead.
 * **`P [piece]`** – List the locations of all pieces of a given type.
   Example: `P N` (capital N) announces the squares of **white knights**; `P q` (lowercase q) lists **black queens**. This means that the capital letters refer to the white pieces, and the small letters refer to the blac, ones. p for pawns, r for rooks, n for knights, b for bishops, q for queen, and k for king.
+  You can now also announce the locations of all pieces for a given color using P A (capital letter) for white and p a (small letter) for black.
 * **`S [rank/file]`** – Read all pieces in a specific **row or column**.
   Example: `S 1` reads all pieces on the first rank. `S a` reads all pieces on file A.
 * **`O`** – Announce the **opponent's username and rating**.
@@ -1040,8 +1108,6 @@ Lichess provides a powerful **Import Game** feature, allowing users to paste or 
 * Request **computer analysis** to evaluate mistakes, blunders, and best moves.
 * Access a **publicly shareable link** to send the game to others.
 * Read or add comments via the **game chat** area.
-
-⚠️ **Note**: Any PGN **variations** (alternative lines) included in the file will be erased during this import. If you want to preserve them, it’s better to import the PGN into a **study**, which supports multiple variations and commentary.
 
 You can choose to **paste the PGN** into the text box or **upload a PGN file** from your device. There’s also a checkbox to request immediate computer analysis. Keep in mind that imported games are publicly accessible unless imported through a study.
 

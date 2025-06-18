@@ -53,3 +53,8 @@ url: "https://yafred.github.io"
 baseurl: "/lichess-blind-mode"
 
 permalink: /:year/:month/:day/:title/
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/

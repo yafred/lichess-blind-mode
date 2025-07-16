@@ -8,6 +8,70 @@ permalink: /tutorial
 
 The following section highlights the latest changes and improvements made to Lichess's blind mode, also known as the non-visual user interface (NVUI). It is intended for users who are already familiar with how NVUI works and want to stay up to date with ongoing enhancements. Whether it's a new feature, a bug fix, or a small accessibility improvement, each item is listed with a brief description and a link to the relevant pull request for those interested in technical details. The most recent updates appear at the top of the list, making it easy to check what's new. You can skip to the next heading to begin reading the tutorial.
 
+* **made “Learn from Your Mistakes” fully accessible in blind mode:**
+
+  * All elements of the feature—including **mistake prompts**, **feedback**, and **move suggestions**—are now announced properly by screen readers.
+  * Added support for:
+
+    * Reviewing **both sides' mistakes** with auto-board flip
+    * Clear **confirmation of analysis requests**
+    * **Proper sequencing** of prompts and responses
+  * This major upgrade allows blind players to use **Learn from Your Mistakes** independently and intuitively for the first time.
+    **[PR #17739](https://github.com/lichess-org/lila/pull/17739)**
+
+* **adding the ability to flip board, and ensured consistency of blind mode commands across gameplay, analysis, and puzzle views:**
+
+  * The `X` and `Alt + X` **ray scanning commands** now work the same way in **puzzle** and **analysis** modes.
+  * Pressing `F` flips the board in all views, including analysis and puzzle.
+    (Note: you will receive a message indicating that the board is flipped)
+  * Improved behavior of the **`B` command**:
+    When returning from the board to input form and back again, `B` now jumps to the **last active square**, not the default e4.
+  * These refinements make blind mode more predictable and fluid across all site areas.
+    **[PR #17784](https://github.com/lichess-org/lila/pull/17784)**
+
+* **added keyboard shortcut `V` to announce computer evaluation in blind mode:**
+
+  * While focused on the **chessboard**, pressing `V` now announces the **current computer evaluation** (e.g., “Evaluation: +0.8”).
+  * This feature brings evaluation access directly to the board, instead of requiring navigation to the analysis panel.
+  * Helps blind players quickly check who is better without leaving their position on the board.
+    **[PR #17795](https://github.com/lichess-org/lila/pull/17795)**
+
+*  **fixed NVDA screen reader issues in gameplay, analysis, and puzzles:**
+
+  * Blind mode announcements (like evaluation, input commands, and move list navigation) are now **properly spoken again** by NVDA, especially on Firefox.
+  * Solved a critical issue where focus was being reset to the page body after certain DOM updates, breaking screen reader feedback.
+  * Now users reliably hear:
+
+    * **Mistake messages** in “Learn from your mistakes”
+    * **Computer evaluation output**
+    * **Board navigation cues**
+  * This makes blind mode much more **stable and predictable** for Windows NVDA users across the site.
+    **[PR #17831](https://github.com/lichess-org/lila/pull/17831)**
+
+* **enhanced blind mode announcements for board navigation and status keys:**
+
+  * Pressing the **`O` key** now announces both the square and the piece on it (e.g., “A1 white rook”) instead of just “A1”.
+  * This change brings **consistency** with arrow-key navigation, where square and piece are already announced together.
+  * The internal handling of board events was also **refactored**, paving the way for more reliable feedback in blind mode.
+    **[PR #17827](https://github.com/lichess-org/lila/pull/17827)**
+
+* **added direct link to the blind mode tutorial on the homepage:**
+
+  * First-time screen reader users now hear:
+    **“Accessibility – Enable blind mode – link: Blind mode tutorial”**
+    at the top of the homepage.
+  * Pressing `K` for links lets users **quickly navigate** to the tutorial without enabling blind mode first.
+  * This change improves **discoverability** of blind mode instructions while keeping the **accessibility toggle behavior unchanged**.
+    **[PR #17823](https://github.com/lichess-org/lila/pull/17823)**
+
+* **the ability to read ranks, files and diagonals:
+  * while focused on any square on the board, `x` scans **diagonal** rays clockwise, starting from **top-right**.
+  * `Alt + x` scans **vertical and horizontal** rays clockwise, starting from **top**.
+  * Holding `Shift` reverses the direction (counter-clockwise).
+  * Repeating the same command continues to the **next ray** in the sequence.
+  * Users can **freely mix** `x` and `Alt + x` while staying on the same square.
+    This expands spatial awareness and gives more flexible scanning options to blind mode users.
+    **[PR #17701](https://github.com/lichess-org/lila/pull/17701)**
 * **Announce Pieces by Color:** The `p` (piece) command now supports announcing pieces by color using a pseudo-piece symbol:
   - `p a` announces the location of all **black** pieces.
   - `p n` announces the location of all **black** knights.
@@ -27,10 +91,6 @@ The following section highlights the latest changes and improvements made to Lic
 * **Better Board Focus Description:** Improved the description announced when the chessboard receives focus in NVUI. Instead of just reading coordinates, the screen reader will now say “Square \[coordinate]” which provides more context (for example, hearing “Square e4” rather than just “e4”). **[PR #17510](https://github.com/lichess-org/lila/pull/17510)**
 
 * **Localized “Ongoing Games” in Lobby:** The blind mode lobby now uses translated text for the “ongoing games” section. Previously this label was not internationalized; now it reuses existing translations for consistency, so users in all languages will see a properly translated phrase. **[PR #17562](https://github.com/lichess-org/lila/pull/17562)**
-
-* **NVUI Command Help Fix:** Fixed an issue where the list of available NVUI commands (the “help” text for blind mode commands) was not being displayed. After this fix, blind users can once again see the full list of keyboard commands under the appropriate headings as intended. **[PR #17567](https://github.com/lichess-org/lila/pull/17567)**
-
-* **NVUI i18n Module on Client:** Ensured that the new NVUI internationalization module is loaded on the client side as well. This behind-the-scenes change means translation data for blind mode is properly passed to the browser, fixing any missing translations in the NVUI interface. **[PR #17569](https://github.com/lichess-org/lila/pull/17569)**
 
 * **Punctuation for Move Announcements:** Added punctuation to moves in NVUI to aid screen reader pauses. This small change improves how moves are spoken by text-to-speech, ensuring there’s a clear break (for example, after a move is read aloud) so the audio is more understandable. **[PR #17465](https://github.com/lichess-org/lila/pull/17465)**
 
@@ -540,13 +600,13 @@ This section contains the actual **8×8 grid** of the chessboard, where the game
 
 This section allows you to adjust how **pieces** and **square names** are announced. Since these settings affect how you experience the board and game feedback, it’s helpful to review and configure them **before you begin playing**.
 
-## 4.2 Understanding and Adjusting Board Settings
+### 4.2 Understanding and Adjusting Board Settings
 
 In the **Advanced Settings** section, you can customize how information is presented on the screen and how moves and squares are announced. These settings affect both the spoken feedback from your screen reader and the layout of the board. It’s recommended to review them before you begin playing.
 
 Below are the key options and what they do:
 
-### Move Notation
+#### Move Notation
 
 **Move notation** determines how chess moves are spoken and displayed — for example, in the move list, or the last move announcement.
 
@@ -573,7 +633,7 @@ You can choose from the following styles:
 
 > 🛈 This setting affects how moves are shown in the **move list**, **last move**, and how your screen reader reads your move input from the command field or the board.
 
-### Page Layout
+#### Page Layout
 
 This setting changes the **position of the actions section** (Abort, Resign, etc.) in relation to the chessboard.
 
@@ -582,13 +642,13 @@ This setting changes the **position of the actions section** (Abort, Resign, etc
 
 Choose the one that feels more natural for your navigation style. Some users prefer having the controls closer to the input field or board.
 
-### Board Settings
+#### Board Settings
 
 These settings control how **pieces and squares are announced** as you navigate the **chessboard itself** — the actual 8×8 grid. They do not affect the move list, the command field, or any other page element. They are especially important if you prefer to **move square by square** using the board instead of typing your moves.
 
 Each option below determines **how much information you hear**, **how it's structured**, and **how your screen reader interprets the board**.
 
-#### Piece Style
+##### Piece Style
 
 This setting controls how the piece itself is spoken when you land on a square containing a piece:
 
@@ -612,7 +672,7 @@ This setting controls how the piece itself is spoken when you land on a square c
 > * Name: `pawn`
 > * white uppercase Name: `Pawn`
 
-#### Piece Prefix Style
+##### Piece Prefix Style
 
 This determines how the **color of the piece** is announced:
 
@@ -629,7 +689,7 @@ This determines how the **color of the piece** is announced:
 
 > This setting is useful if you prefer faster navigation or already know whose turn it is or if you use upperCase to differintiate colors.
 
-#### Show Position
+##### Show Position
 
 This controls the **order** in which the square and the piece are spoken when you navigate the board:
 
@@ -644,7 +704,7 @@ This controls the **order** in which the square and the piece are spoken when yo
 * **None**:
   The square name is **not included** — only the piece is announced.
 
-#### Board Layout
+##### Board Layout
 
 This controls the **HTML structure** of the board and how it behaves with your screen reader:
 
@@ -717,7 +777,7 @@ For example, when you start the game and type `e4`, the move is submitted instan
 
 Lichess can announce square names and moves in different styles, such as the Anna method, which uses phonetic letters like “eva 7” instead of “e7”. These spoken formats are fully customizable in the Advanced Settings section, where you can choose how piece names, colors, and square names are announced as you navigate the board or listen to moves.
 
-## 4.4 Navigating the Chessboard
+### 4.4 Navigating the Chessboard
 
 In addition to using the command input field, you can directly interact with the **8×8 chessboard** using your screen reader and keyboard. This method allows you to **explore each square**, **select pieces**, and **make moves manually** by pressing the **Spacebar**.
 
@@ -730,7 +790,7 @@ In addition to using the command input field, you can directly interact with the
 
 This method is especially useful for players who like to explore the position physically and prefer **direct interaction over typing moves**.
 
-### Board Navigation Commands
+#### Board Navigation Commands
 
 Below is a list of **keyboard shortcuts** that work while the chessboard is focused. These help you gather game information or move quickly around the board.
 
@@ -751,9 +811,11 @@ Below is a list of **keyboard shortcuts** that work while the chessboard is focu
 * **`m`** – After selecting a piece, press `m` to hear all **possible legal moves** for that piece.
   The list is read out based on current game rules.
 
+* **`f`** – flips the board upside down so that you can have a chance to check it from the other color's prospective.
+
 * **`Shift + m`** – After selecting a piece, press this to hear only the **possible captures** the piece can make.
 
-### Quick Navigation Shortcuts
+#### Quick Navigation Shortcuts
 
 These shortcuts help you jump to specific types of squares or positions without using arrow keys:
 
@@ -779,7 +841,25 @@ These shortcuts help you jump to specific types of squares or positions without 
 
 These commands allow for a hands-on, responsive experience, especially useful when reviewing games, planning attacks, or simply navigating comfortably.
 
-### Practice Scenario: Playing a Simple Opening with the Board
+#### Reading Ranks, Files, and Diagonals from the Current Square
+
+When focused on any square on the board, you can explore all possible **straight-line directions** (rays) radiating from that square using the following commands. This is particularly useful for blind mode users to understand threats, control, and piece positions in all directions.
+
+* Press **`x`** to read the **diagonal rays**, starting with the **top-right** direction and moving **clockwise**:
+  top-right → bottom-right → bottom-left → top-left.
+
+* Press **`Alt + x`** to read the **vertical and horizontal rays**, starting from the **top** and moving **clockwise**:
+  top → right → bottom → left.
+
+* Hold **`Shift`** with either command (`Shift + x` or `Shift + Alt + x`) to reverse the direction, moving **counter-clockwise**.
+
+* Repeating the same key combination again (while staying on the same square) will advance to the **next direction** in the sequence.
+
+* You can **freely alternate between `x` and `Alt + x`** to scan diagonals, files, and ranks in any order, without needing to move the focus square.
+
+This system gives you a full 360-degree awareness of the board from any given position — a powerful tool for spatial reasoning and tactical evaluation.
+
+#### Practice Scenario: Playing a Simple Opening with the Board
 
 Let’s say you're playing as **White** in a game against the computer. You’ve just created the game, and the board is focused.
 
@@ -813,7 +893,7 @@ Your goal is to play the common opening move **pawn to e4** using the board inte
 * If you want to know all the legal moves for a piece before committing, select the piece and press **`m`**.
 * If you want to move using the command field instead, press **`i`** to jump to the input form and type `e4`.
 
- ### important notes
+### important notes
 * **Note about repeated screen reader output:**
   Depending on your screen reader settings, if the text output from Lichess is **exactly the same** as the previous message, it may **not be read aloud again**.
   For example, if you press **`L`** to hear the last move, and then press **`L`** again without any change on the board, you might not hear anything — even though the command was accepted. This applies to commands issued in the command input as well as the board.
@@ -904,7 +984,37 @@ Below the **Computer Analysis** heading, you'll find two level 3 headings:
 
 Each player has a combo box listing their inaccurate or poor moves. Selecting a move jumps the board to that position.
 
-### 5.5 PGN and FEN Downloads
+### 5.5 Learn from Your Mistakes
+
+After finishing a game, you can request a computer analysis by navigating to the **"Request Computer Analysis"** button and activating it. Once the analysis is complete, a new button labeled **"Learn from Your Mistakes"** will appear directly **below the input text field**.
+
+Activating this button launches an **interactive review mode** that hides all evaluation data—such as centipawn loss, inaccuracies, and blunders—making the learning experience **more focused and exploratory**.
+
+Here's how the feature works:
+
+* You will be **told about a mistake** you made in the game (e.g., "Turn 12. White played knight to e5").
+
+* You are then **prompted to find a better move**. You can try your move either:
+
+  * By navigating the **board** and make your move normally like you usually do,
+  * Or by typing a move in the **input field** and pressing `Enter`.
+
+* If your move is incorrect, you will hear:
+  **"You can do better"** — and be prompted again.
+
+* If your move is correct, you will hear a **confirmation** such as:
+  **"Good job"**, and the system will automatically **advance to the next mistake**.
+
+You will also find additional buttons:
+
+* **"View Solution"** – Reveals the best move suggested by the engine.
+* **"Skip"** – Lets you move on without solving the current mistake.
+
+Once you finish reviewing your own mistakes, the system allows you to **review the opponent’s mistakes** as well. The board will automatically **flip** so that you see the position from their perspective, and the same review process begins again.
+
+This feature makes post-game analysis in blind mode **fully accessible and hands-on**, giving players the chance to understand and correct their decisions one move at a time.
+
+### 5.6 PGN and FEN Downloads
 
 Below the board, you'll find the **Downloads section** (Heading level 2):
 
@@ -918,7 +1028,7 @@ Below the board, you'll find the **Downloads section** (Heading level 2):
 
   * **Copy FEN to clipboard**: Useful for resuming or studying a position.
 
-### 5.6 Keyboard Shortcuts (Analysis Mode)
+### 5.7 Keyboard Shortcuts (Analysis Mode)
 
 When focused anywhere **except the board**, the following shortcuts are available in **Focus Mode**:
 
@@ -938,8 +1048,10 @@ While **focused on the chess board**, several keyboard shortcuts become availabl
 * **`Alt + Shift + A / D`**:
   Cycles through **variations** or **alternate lines** that were suggested by the engine during analysis.
   If a move was marked as a mistake or blunder, the engine often recommends a better line. These shortcuts allow you to explore those better paths and understand why your original move wasn’t ideal.
+* **`v`**:
+reads the computer evaluation for the current position.
 
-### 5.7 Command Input in Analysis
+### 5.8 Command Input in Analysis
 
 All the regular game commands still work, plus a few more:
 

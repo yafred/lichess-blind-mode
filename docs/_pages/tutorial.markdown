@@ -1185,7 +1185,7 @@ If you found this guide helpful and want to contribute to improving it or report
 
 * **Request Features or Join Accessibility Discussions**:
 
-  * Participate in the **[Lichess Feedback Forum](https://lichess.org/forum/Lichess-feedback)**.
+  * Participate in the **[Lichess Feedback Forum](https://lichess.org/forum/lichess-feedback)**.
   * Share your experience, request improvements, or join ongoing conversations about accessibility and user interface behavior.
 
 * **Stay Informed and Connected**:

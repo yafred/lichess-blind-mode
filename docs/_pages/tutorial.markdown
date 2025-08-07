@@ -7,6 +7,8 @@ permalink: /tutorial
 
 ## Introduction
 
+[click here if you want to learn about the recent changes and updates to the blind mode on Lichess](https://lichess.org/page/blind-mode-changelog)
+
 Welcome to the **Lichess Blind Mode Tutorial** — a practical guide designed for **blind and visually impaired players** using screen readers to enjoy chess on [lichess.org](https://lichess.org).
 
 Lichess is one of the most accessible chess platforms available today. Its built-in **Blind Mode** transforms the interface into a fully keyboard-navigable and screen reader-friendly environment, enabling users to:
@@ -151,8 +153,6 @@ To use Lichess effectively in Blind Mode, you’ll need:
 * A **modern web browser**, like Chrome, Firefox, Safari, or Edge
 * A **stable internet connection**
 * Familiarity with **keyboard navigation** on the web
-
-> ⚠️ If you're using Lichess on a **mobile device**, we recommend connecting a **Bluetooth or wired keyboard**. While the touch screen interface is partially usable, the current experience is not yet fully optimized for screen reader users on mobile without a physical keyboard.
 
 Although it's possible to play anonymously, **creating a free account** is highly recommended. This allows you to track your games, ratings, preferences, and access advanced features like tournaments, studies, and team play.
 
@@ -761,6 +761,43 @@ Your goal is to play the common opening move **pawn to e4** using the board inte
 * If you want to know all the legal moves for a piece before committing, select the piece and press **`m`**.
 * If you want to move using the command field instead, press **`i`** to jump to the input form and type `e4`.
 
+### 4.5 Playing on Touchscreen Devices
+
+Support for touchscreen devices has been newly introduced in Lichess Blind Mode. This is an early implementation, and feedback is very welcome to improve usability. Currently, only the **Playing a Game** mode supports touchscreen interaction — **Puzzle** and **Analysis** modes are not yet included.
+
+#### Layout Notice
+
+By default, the **chessboard** is placed at the top of the page.
+If you do not find the board at the top, look for the **Board Actions** setting and set it to **“Board then Actions.”** This ensures the board is the first element you interact with.
+
+#### Exploring and Making Moves
+
+On touchscreen devices with a screen reader:
+
+* You can **explore the board** by moving your finger across the screen. As you do, your screen reader will announce the name of each square along with any piece currently on it (for example: *“e4, black pawn”*).
+* To **select a piece**, **double-tap** its square. The screen reader will confirm that the piece is selected.
+* To **make a move**, **explore to the target square** and then **double-tap** again. The move will be made if it is legal.
+* If the move is not legal,  nothing will happen.
+
+This interaction model closely mirrors the experience of a sighted touchscreen user, but is adapted for auditory feedback and accessibility.
+
+#### Promotion Behavior
+
+* To **promote to a queen**, **double-tap a second time** on the square where the pawn is promoted.
+* To **promote to another piece** (rook, bishop, or knight), or to **cancel the promotion**, explore the **new row of squares** just **below the promotion square**. These allow for alternate promotion choices.
+
+#### Command Row and Premove Cancellation
+
+A **new row of buttons** has been added **below the lowest rank** on the board (Rank 1 for White, Rank 8 for Black). You can discover this row by exploring downward after the board.
+
+This row currently includes:
+
+* A button to **read the last move**
+* Button to **read each player's clock**
+* A **Cancel Premove** button
+
+This row will likely include additional buttons or text fields in future updates as functionality expands.
+
 ### important notes
 * **Note about repeated screen reader output:**
   Depending on your screen reader settings, if the text output from Lichess is **exactly the same** as the previous message, it may **not be read aloud again**.
@@ -1052,7 +1089,7 @@ Joining or creating a team is a great way to build community, join regular compe
 **To access the Teams page:**
 
 * Go to the **top of the page**.
-* Press **H** until you reach the heading **“Community.”**
+* Press **H** until you reach the **Community** heading
 * Arrow down to find the **“Teams”** link and press **Enter**.
 
 **On the Teams page, you can:**
@@ -1062,6 +1099,10 @@ Joining or creating a team is a great way to build community, join regular compe
 * **Join a team**: Some teams are open to everyone; others may require approval from a team leader.
 * **Create your own team**: Choose a name, set a description, and decide whether it will be open or invite-only.
 * **Participate in team battles**: Many teams host regular tournaments or friendly matches against other teams. These often appear under the **Tournaments** tab.
+
+#### The blind mode team 
+
+The [**Blind Mode Team** on Lichess](https://lichess.org/team/the-blind-mode-team) is a dedicated community space for discussing everything related to blind mode. It serves as a hub for announcements, accessibility updates, bug reports, and suggestions for new features. Whether you're a blind or visually impaired player, or simply interested in supporting accessible chess, you're welcome to follow the team's discussions and contribute your ideas. If you'd like to join, you can send a request to the team moderators—who are also the developers actively working on blind mode features. Being part of the team gives you early insight into upcoming improvements and a voice in shaping the future of blind-friendly chess on Lichess.
 
 ### 9.2. Arena Tournaments on Lichess
 
@@ -1110,10 +1151,6 @@ Lichess includes a built-in **chat feature** that allows users to communicate du
 * You can return to the chat at any time by pressing the **“Live chat”** tab.
 
 If you prefer to **disable chat altogether**, you can do so from your **Privacy settings** under **User Preferences**.
-
-Here’s a refined and structured version of the paragraph:
-
----
 
 ### 9.5. Your Account
 

@@ -7,7 +7,53 @@ permalink: /changelog
 
 ## What's New in Blind Mode
 
+[Click here if you want to read a comprehensive tutorial on how to get the best out of using blind mode to play chess on Lichess](https://lichess.org/page/blind-mode-tutorial)
+
 The following section highlights the latest changes and improvements made to Lichess's blind mode, also known as the non-visual user interface (NVUI). It is intended for users who are already familiar with how NVUI works and want to stay up to date with ongoing enhancements. Whether it's a new feature, a bug fix, or a small accessibility improvement, each item is listed with a brief description and a link to the relevant pull request for those interested in technical details. The most recent updates appear at the top of the list, making it easy to check what's new. You can skip to the next heading to begin reading the tutorial.
+
+* **Created official Blind Mode Team for community feedback and collaboration:**
+  **[Blind Mode Team on Lichess](https://lichess.org/team/the-blind-mode-team)**
+
+  * A new public team has been launched to serve as the **central hub for all blind mode discussions**.
+
+  * The team is moderated by the developers working directly on blind mode features, making it the best place to:
+
+    * **Receive announcements** about new accessibility updates
+    * **Submit feature requests and bug reports**
+    * **Share feedback** and engage in ongoing development discussions
+
+  * Blind and visually impaired players can **request to join the team** to take an active role in shaping the future of accessibility on Lichess.
+
+* **Massive accessibility upgrade for blind users on touchscreens:**
+  **[PR #17847](https://github.com/lichess-org/lila/pull/17847)**
+
+  * Introduced a fully restructured layout optimized for **small touch devices**, moving the board to the top for easier access.
+
+  * Screen readers now **announce piece names and squares** when navigating the board, replacing vague selection sounds with clear spoken feedback.
+
+  * New intuitive **promotion method**: double-tap the promotion square to promote to a queen, or explore the squares below to choose another piece or cancel.
+
+  * Added **on-screen buttons** to:
+
+    * **Cancel premoves** without needing a keyboard
+    * **Flip the board** easily during play
+    * read last move and clocks of both players when needed.
+  * These changes make it dramatically easier for blind players using tablets or phones to play independently, with no reliance on a keyboard.
+
+* **Added quick access link to Blind Mode tutorial on homepage:**
+  **[PR #17823](https://github.com/lichess-org/lila/pull/17823)**
+
+  * A new **“Blind mode tutorial” link** now appears next to the **“Enable blind mode”** button on the Lichess homepage.
+  * The link is easy to find for **first-time screen reader users**, appearing right at the top of the page and announced clearly by NVDA and other screen readers.
+  * For returning users, it’s simple to skip using normal navigation.
+  * This small but impactful change ensures that new blind players can **discover essential guidance** without needing prior knowledge or external help.
+
+* **Improved forum post navigation for blind users:**
+  **[PR #17867](https://github.com/lichess-org/lila/pull/17867)**
+
+  * Forum posts are now **clearly marked with heading level 2**, making it easy for screen reader users to jump between posts using the standard `h` navigation key.
+    * With this fix, blind users can now **explore, skip, and revisit forum posts efficiently**, just like navigating between sections of a page.
+  * Titles and reply links remain as proper headings, ensuring consistent structure across the forum experience.
 
 * **made “Learn from Your Mistakes” fully accessible in blind mode:**
 
@@ -137,3 +183,4 @@ The following section highlights the latest changes and improvements made to Lic
   **[PR #16864](https://github.com/lichess-org/lila/pull/16864)**
 
 * **Fixed Blind Mode in Broadcasts:** Resolved a bug that caused the blind mode  to crash during broadcast games. This fix ensures blind mode works correctly when viewing live broadcasts. **[PR #16856](https://github.com/lichess-org/lila/pull/16856)**
+

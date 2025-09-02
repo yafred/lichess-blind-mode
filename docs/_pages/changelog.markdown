@@ -24,6 +24,44 @@ The following section highlights the latest changes and improvements made to Lic
 
   * Blind and visually impaired players can **request to join the team** to take an active role in shaping the future of accessibility on Lichess.
 
+* **Added visual board display for sighted testers and low-vision users:**
+  **[PR #18094](https://github.com/lichess-org/lila/pull/18094)**
+
+  * The Blind Mode board now **shows pieces and square colors** when enabled, without changing the experience for screen reader users.
+  * This improvement makes it easier for **sighted testers** to follow Blind Mode behavior during development and debugging.
+  * It also benefits **low-vision players**, who may prefer combining **high-contrast visuals with audio feedback** for a more accessible playing experience.
+
+* **Fixed Puzzle Streak page not displaying in Blind Mode:**
+  **[PR #18088](https://github.com/lichess-org/lila/pull/18088)**
+
+    * The page now **renders correctly**, allowing blind users to access and play Puzzle Streak without issues.
+
+* **Added “Get Hint” feature in Puzzle mode:**
+  **[PR #18079](https://github.com/lichess-org/lila/pull/18079)**
+
+  * Introduced a **Get Hint** option in puzzles that announces the **square coordinate** of the piece you should move.
+  * This mirrors the visual highlight available in the sighted interface, making hints accessible for blind users.
+  * Players can now request a hint without revealing the full solution — giving subtle guidance while still preserving the challenge.
+
+* **Improved game mode selection (Casual vs Rated) with an accessible dropdown:**
+  **[PR #18061](https://github.com/lichess-org/lila/pull/18061)**
+
+  * Replaced the previous toggle with a **proper select (dropdown) control** for choosing **Casual** or **Rated** game mode.
+  * Clearer labels and state announcement for screen readers; the **current selection is read reliably**, reducing ambiguity.
+  
+* **Antichess: promote to King directly from the board (desktop & touchscreen):**
+  **[PR #18004](https://github.com/lichess-org/lila/pull/18004)**
+
+  * In **Antichess**, Blind Mode now supports **promoting a pawn to a King** straight from the board interaction.
+  * **Desktop:** press **`k`** when a promotion is available to promote to **King**.
+  * **Touchscreen:** a dedicated **“Promote to King”** control is available alongside the other promotion options.
+  
+* **Speak and play the best move in analysis mode:**
+  **[PR #17996](https://github.com/lichess-org/lila/pull/17996)**
+
+  * Introduced a command that lets Blind Mode users **hear the engine’s best move** and **play it directly on the board**.
+  * press g to hear the best move according to the engine, and press shift+g to play this move on the board.
+  
 * **Massive accessibility upgrade for blind users on touchscreens:**
   **[PR #17847](https://github.com/lichess-org/lila/pull/17847)**
 

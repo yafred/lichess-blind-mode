@@ -5,6 +5,8 @@ permalink: /tutorial
 ---
 
 
+Last modified: September 3rd, 2025
+
 ## Introduction
 
 [click here if you want to learn about the recent changes and updates to the blind mode on Lichess](https://lichess.org/page/blind-mode-changelog)
@@ -281,7 +283,7 @@ Next, you’ll choose how time is managed during the game. Use Tab or arrow keys
 
 ####  Casual vs Rated
 
-Next, you’ll tab to a **radio button** asking whether this game is:
+Next, you’ll tab to another **drop down list** asking whether this game is:
 
 * **Casual:** The result does **not affect your rating**
 * **Rated:** The game will **affect your Lichess rating**, depending on the result
@@ -620,18 +622,18 @@ Typing one of these notations in the command field and pressing **Enter** will e
 
 In addition to moves, you can type a variety of **single-letter or word-based commands** in the command field. These commands provide game information or allow you to navigate the position. Here's a full list with explanations:
 
-* **`C [clock]`** – Read both clocks (your time and your opponent’s). Your time is announced first. You can also type the word Clock if you wish.
-* **`L [last]`** – Announce the **last move** played on the board. You can also type the word "last" Instead.
-* **`P [piece]`** – List the locations of all pieces of a given type.
-  Example: `P N` (capital N) announces the squares of **white knights**; `P q` (lowercase q) lists **black queens**. This means that the capital letters refer to the white pieces, and the small letters refer to the blac, ones. p for pawns, r for rooks, n for knights, b for bishops, q for queen, and k for king.
-  You can now also announce the locations of all pieces for a given color using P A (capital letter) for white and p a (small letter) for black.
+* **`c [clock]`** – Read both clocks (your time and your opponent’s). Your time is announced first. You can also type the word Clock if you wish.
+* **`l [last]`** – Announce the **last move** played on the board. You can also type the word "last" Instead.
+* **`p [piece]`** – List the locations of all pieces of a given type.
+  Example: `p N` (capital N) announces the squares of **white knights**; `p q` (lowercase q) lists **black queen**. This means that the capital letters refer to the white pieces, and the small letters refer to the black, ones. p for pawns, r for rooks, n for knights, b for bishops, q for queen, and k for king.
+  You can now also announce the locations of all pieces for a given color using p A (capital letter) for white and p a (small letter) for black.
 * **`S [rank/file]`** – Read all pieces in a specific **row or column**.
-  Example: `S 1` reads all pieces on the first rank. `S a` reads all pieces on file A.
-* **`O`** – Announce the **opponent's username and rating**.
+  Example: `s 1` reads all pieces on the first rank. `S a` reads all pieces on file A.
+* **`o`** – Announce the **opponent's username and rating**.
 * **`Board` or `B`** – Move focus to the chessboard.
   You can optionally specify a square, e.g., `board a1` or `b a1` to jump to square a1. The default square is `e4`. remember to leave a space between the command and the square name.
-* **`Abort`** – Abort the current game. Only works before any move is made.
-* **`Resign`** – Immediately resigns the game.
+* **`abort`** – Abort the current game. Only works before any move is made.
+* **`resign`** – Immediately resigns the game.
 * **`Draw`** – Offer a draw to your opponent or accept a draw offer (only works in human games).
 * **`Takeback`** – Request a takeback. Instantly accepted by the computer; requires approval from a human opponent.
 * **Promotion using `=`** – To promote a pawn to something other than a queen, use `equals`.
@@ -657,6 +659,8 @@ In addition to using the command input field, you can directly interact with the
 4. If you make a mistake or change your mind, you don’t need to manually cancel your selection. Simply navigate to another square and press **Space** to select a new piece — the previous selection will be **automatically cleared**.
 
 This method is especially useful for players who like to explore the position physically and prefer **direct interaction over typing moves**.
+
+> recently, the Blind Mode board has become more inclusive: in addition to full screen reader support for blind players, the board also displays pieces and square colors. This makes it easier for sighted testers to follow along, but it can also benefit people with limited vision who can distinguish high-contrast visuals. In this way, Blind Mode becomes usable not only for completely blind players, but also for those with partial sight who may prefer combining visual cues with audio feedback.
 
 #### Board Navigation Commands
 
@@ -792,9 +796,14 @@ A **new row of buttons** has been added **below the lowest rank** on the board (
 
 This row currently includes:
 
+* A **Cancel Premove** button
 * A button to **read the last move**
 * Button to **read each player's clock**
-* A **Cancel Premove** button
+* Common actions like:
+
+  * **Offer or accept a draw**
+  * **Request a takeback**
+  * **Resign**
 
 This row will likely include additional buttons or text fields in future updates as functionality expands.
 
@@ -954,7 +963,11 @@ While **focused on the chess board**, several keyboard shortcuts become availabl
   Cycles through **variations** or **alternate lines** that were suggested by the engine during analysis.
   If a move was marked as a mistake or blunder, the engine often recommends a better line. These shortcuts allow you to explore those better paths and understand why your original move wasn’t ideal.
 * **`v`**:
-reads the computer evaluation for the current position.
+Announces the computer’s numerical evaluation of the current position. A **positive number** means White has the advantage, while a **negative number** means Black is better.
+* **`g`**:
+Announces the best move recommended by the computer engine, without playing it.
+* **`Shift+g`**:
+Automatically plays the best move recommended by the engine on the board, allowing you to explore the continuation directly.
 
 ### 5.8 Command Input in Analysis
 
@@ -985,15 +998,27 @@ At the top of the Lichess homepage, you’ll find a **“Puzzles”** heading in
 
 When a puzzle loads, you’ll see a familiar interface similar to a normal game. Use the **command input** or **board navigation** to make your move.
 
-If you're stuck, you have options:
+If you are unsure about the solution, lichess provides a few options to assist you:
 
-* Press the **“View Solution”** button in the **Actions** section to reveal the correct answer.
-* Press **`V`** in the **command input** to achieve the same.
-* Once solved, use the **“Continue”** button, which is found under the actions heading, to move to the next puzzle.
+* **Get Hint:** A new option available in the **Actions** section. Activating it will announce the square coordinate of the piece you should move. This way, you know which piece to start with, but not the full solution.
+* **View Solution:** Press the **“View Solution”** button in the **Actions** section to reveal the complete correct answer. If the solution is more than one move, you can review it by checking the move list, or by moving backward with shift+a.
+* **Command Input Shortcut:** You can also type **`V`** in the **command input** to view the solution directly.
 
 In the **Settings** section of the page, there’s a **difficulty combo box** where you can choose the puzzle level, ranging from easiest to hardest, depending on how much challenge you want.
 
 Puzzles are a fun and efficient way to build your tactical strength—especially helpful when paired with engine analysis and regular gameplay.
+
+### Puzzle Streak
+
+Puzzle Streak is a training mode where you solve as many puzzles as possible in a row without making a mistake. It can be found under the **Puzzles** heading on the top menu. Unlike normal puzzles, which are rated and match your skill level, Puzzle Streak keeps increasing in difficulty as you progress, and the goal is to reach the longest streak you can. The first puzzles are usually very simple—often one-move tactics. With each correct solution, the puzzles get gradually harder. One wrong move ends the streak immediately, so accuracy is more important than speed. Many players use it to beat their personal records or to compare streak lengths with friends.
+
+### How it works in Blind Mode
+
+* The board is displayed the same way as in other puzzles. You can explore squares with your screen reader, hear the pieces, and make your moves.
+* After you solve a puzzle correctly, the next one loads automatically with the updated streak count.
+* If you make a wrong move, the streak ends, and you will hear or see a message that your attempt is over, along with your final score.
+* You can restart anytime by activating the “New Streak” button.
+* there is no hint option in puzzle streaks.
 
 ---
 
@@ -1100,9 +1125,20 @@ Joining or creating a team is a great way to build community, join regular compe
 * **Create your own team**: Choose a name, set a description, and decide whether it will be open or invite-only.
 * **Participate in team battles**: Many teams host regular tournaments or friendly matches against other teams. These often appear under the **Tournaments** tab.
 
-#### The blind mode team 
+### The Blind Mode Team
 
-The [**Blind Mode Team** on Lichess](https://lichess.org/team/the-blind-mode-team) is a dedicated community space for discussing everything related to blind mode. It serves as a hub for announcements, accessibility updates, bug reports, and suggestions for new features. Whether you're a blind or visually impaired player, or simply interested in supporting accessible chess, you're welcome to follow the team's discussions and contribute your ideas. If you'd like to join, you can send a request to the team moderators—who are also the developers actively working on blind mode features. Being part of the team gives you early insight into upcoming improvements and a voice in shaping the future of blind-friendly chess on Lichess.
+The [**Blind Mode Team** on Lichess](https://lichess.org/team/the-blind-mode-team) is the official community space dedicated to Blind Mode users. It brings together blind and visually impaired players, developers, and testers who are all working toward making Lichess more accessible.
+
+When you join the team, you become part of a small but growing community. At present, the team includes blind players, accessibility enthusiasts, and several core Lichess contributors. Membership requests are accepted automatically, and the forum is visible to non-members as well—this openness helps attract new blind users who may not yet know about the team. The Blind Mode Team is also mentioned in the official Blind Mode Tutorial, ensuring that new players discover it quickly.
+
+The team serves several important purposes:
+
+* **Announcements and updates:** The welcome page is regularly updated to highlight recent changes—whether they are already live, accepted and awaiting deployment, or still under development. Links to more detailed English documents are also available for those who want in-depth technical information.
+* **Discussion and feedback:** The team forum is the preferred space to ask questions, share feedback, or suggest new features. Unlike chat, which is short-lived, the forum preserves discussions so that they remain useful for future readers.
+* **Direct communication:** Occasionally, team admins send messages to all members. These appear as private notifications on Lichess (not emails), and are used sparingly—for example, to report urgent issues or to request community feedback.
+* **Visibility and growth:** Because the forum is open to read by everyone, even non-members can learn from the discussions. This transparency has already helped draw attention to accessibility topics and encourage new contributors.
+
+Although the Blind Mode Team is still young and relatively small, it has already proven to be a valuable bridge between users and developers. It ensures that accessibility improvements are not only tested but also shaped directly by the people who rely on them. Whether you are blind, partially sighted, or simply interested in supporting accessibility, joining the team gives you a chance to influence the future of blind-friendly chess on Lichess.
 
 ### 9.2. Arena Tournaments on Lichess
 
@@ -1206,30 +1242,30 @@ Here’s a list of other useful and interesting Lichess features that you may ex
 
 ---
 
-## 10. Contributions
+## 10. Contributions and feedback
 
-Lichess is open-source and constantly evolving thanks to the contributions and feedback from its users — including screen reader users like you.
+Accessibility on Lichess is a community effort, and your input makes a real difference. One of the best ways to stay involved is by joining the [**Blind Mode Team**](https://lichess.org/team/the-blind-mode-team). This team connects blind and visually impaired players with Lichess developers, providing a dedicated space for accessibility discussions, feature requests, and testing. The forum is open to all, membership requests are automatically accepted, and updates about ongoing or upcoming changes are posted regularly. By joining, you not only stay informed but also gain a direct channel to shape the future of Blind Mode.
 
-If you found this guide helpful and want to contribute to improving it or reporting issues related to accessibility, here are some ways to get involved:
+If you would like to contribute beyond the team, there are several other ways to get involved:
 
-* **Suggest Edits or Improvements to This Guide**: If you notice any mistakes or think certain areas could be better explained, feel free to suggest edits or share feedback. Contributions from other blind or visually impaired users are especially valuable in making this guide better for everyone.
+* **Suggest Edits or Improvements to This Guide**: If you notice any mistakes or think certain areas could be explained more clearly, please share your feedback. Contributions from other blind or visually impaired users are especially valuable in making this guide more practical for everyone.
 
 * **Report Bugs or Accessibility Issues**:
 
-  * Visit the **[Lichess GitHub repository](https://github.com/lichess-org/lila/issues)**.
-  * You can create a new issue explaining the problem you're facing.
-  * Be clear and detailed — include what screen reader you're using, the browser, and steps to reproduce the issue.
+  * Visit the [Lichess GitHub repository](https://github.com/lichess-org/lila/issues).
+  * Create a new issue describing the problem you’ve found.
+  * Be clear and detailed — mention your screen reader, browser, and the exact steps to reproduce the issue.
 
 * **Request Features or Join Accessibility Discussions**:
 
-  * Participate in the **[Lichess Feedback Forum](https://lichess.org/forum/lichess-feedback)**.
-  * Share your experience, request improvements, or join ongoing conversations about accessibility and user interface behavior.
+  * Use the [Lichess Feedback Forum](https://lichess.org/forum/lichess-feedback).
+  * Share your experiences, suggest improvements, and participate in accessibility conversations with the broader community.
 
 * **Stay Informed and Connected**:
 
-  * Follow updates on **Lichess blogs** or **social media** to stay aware of new features that may impact accessibility.
-  * Engage with the wider Lichess community — developers are very receptive and supportive of improving accessibility for everyone.
+  * Follow updates on the Lichess blog or social media channels to learn about new features that may affect accessibility.
+  * Engage with the wider Lichess community — developers and contributors are very receptive to feedback and eager to improve accessibility.
 
-Your feedback helps not just yourself but many others in the blind and visually impaired chess community.
+Your feedback doesn’t just help you — it benefits the entire blind and visually impaired chess community.
 
 **This guide was prepared by Ekramy Medad. For feedback, collaboration, or contributions, you can connect with me on [GitHub](https://github.com/ikrami1).**

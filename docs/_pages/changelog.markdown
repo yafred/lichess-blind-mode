@@ -4,6 +4,7 @@ title: What's new
 permalink: /changelog
 ---
 
+Last modified: September 3rd, 2025
 
 ## What's New in Blind Mode
 

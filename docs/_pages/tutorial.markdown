@@ -5,9 +5,9 @@ permalink: /tutorial
 ---
 
 
-Last modified: September 3rd, 2025
-
 ## Introduction
+
+**Last Update:** the 22nd of October, 2025.
 
 [click here if you want to learn about the recent changes and updates to the blind mode on Lichess](https://lichess.org/page/blind-mode-changelog)
 
@@ -624,18 +624,18 @@ In addition to moves, you can type a variety of **single-letter or word-based co
 
 * **`c [clock]`** – Read both clocks (your time and your opponent’s). Your time is announced first. You can also type the word Clock if you wish.
 * **`l [last]`** – Announce the **last move** played on the board. You can also type the word "last" Instead.
-* **`p [piece]`** – List the locations of all pieces of a given type.
-  Example: `p N` (capital N) announces the squares of **white knights**; `p q` (lowercase q) lists **black queen**. This means that the capital letters refer to the white pieces, and the small letters refer to the black, ones. p for pawns, r for rooks, n for knights, b for bishops, q for queen, and k for king.
-  You can now also announce the locations of all pieces for a given color using p A (capital letter) for white and p a (small letter) for black.
-* **`S [rank/file]`** – Read all pieces in a specific **row or column**.
+* **`P [piece]`** – List the locations of all pieces of a given type.
+  Example: `P N` (capital N) announces the squares of **white knights**; `P q` (lowercase q) lists **black queens**. This means that the capital letters refer to the white pieces, and the small letters refer to the blac, ones. p for pawns, r for rooks, n for knights, b for bishops, q for queen, and k for king.
+  You can now also announce the locations of all pieces for a given color using P A (capital letter) for white and p a (small letter) for black.
+* **`s [rank/file]`** – Read all pieces in a specific **row or column**.
   Example: `s 1` reads all pieces on the first rank. `S a` reads all pieces on file A.
 * **`o`** – Announce the **opponent's username and rating**.
-* **`Board` or `B`** – Move focus to the chessboard.
+* **`board` or `b`** – Move focus to the chessboard.
   You can optionally specify a square, e.g., `board a1` or `b a1` to jump to square a1. The default square is `e4`. remember to leave a space between the command and the square name.
 * **`abort`** – Abort the current game. Only works before any move is made.
 * **`resign`** – Immediately resigns the game.
-* **`Draw`** – Offer a draw to your opponent or accept a draw offer (only works in human games).
-* **`Takeback`** – Request a takeback. Instantly accepted by the computer; requires approval from a human opponent.
+* **`draw`** – Offer a draw to your opponent or accept a draw offer (only works in human games).
+* **`takeback`** – Request a takeback. Instantly accepted by the computer; requires approval from a human opponent.
 * **Promotion using `=`** – To promote a pawn to something other than a queen, use `equals`.
   Example: `a8=R` promotes a pawn to a rook on a8, `b1=k` promotes to a knight.
 
@@ -1242,7 +1242,81 @@ Here’s a list of other useful and interesting Lichess features that you may ex
 
 ---
 
-## 10. Contributions and feedback
+## 10. **PGN Viewer: Accessible Game Playback for Screen Reader Users**
+
+### 10.1. **What Is the PGN Viewer?**
+
+The **PGN Viewer** is a feature on Lichess that allows users to read and replay chess games that are embedded in webpages — for example, games shared in articles, blogs, or forum posts. PGN stands for **Portable Game Notation**, a standard format for recording chess games.
+Traditionally, these embedded viewers have been almost entirely visual, making them inaccessible to blind or visually impaired players. Thanks to the major accessibility overhaul merged in **October 2025**, the PGN Viewer now offers **a complete chess experience for screen reader users**, fully compatible with VoiceOver, NVDA, and JAWS.
+
+The accessible PGN Viewer makes it possible for blind players to:
+
+* **Read and follow annotated chess games online** directly on any website or forum.
+* **Explore the chessboard and moves independently**, hearing every piece, move, annotation, and comment announced through their screen reader.
+* **Benefit from full keyboard navigation without depending on mouse actions or visual elements.
+
+In short, this viewer bridges the gap between **web-based chess content** and **blind-accessible interaction**, letting users study games, follow commentaries, or review analysis without needing visual assistance.
+
+### 10.2. **Screen Reader Features**
+
+#### **Invisible Accessible Chessboard**
+
+* Represents the **complete 8×8 grid** of the board for screen readers.
+* Announces **piece names, colors, and coordinates** (e.g., “White knight on f3”).
+* Updates automatically as you move through the game or flip the board.
+* Built using semantic HTML with `<table>` and `<button>` elements for proper navigation.
+
+#### **Live Move Announcements**
+
+* Each move is announced in real time with its **move number, side, and notation** (for example, “Move 12, Black plays Knight takes e4”).
+* Screen readers also announce:
+
+  * **Check and checkmate status**,
+  * **Move annotations** (!, ?, !!, ??), and
+  * **Any written comments** from the game notes.
+* If clock times are available, the **remaining time for each player** is announced with the move.
+
+#### **Enhanced Keyboard Navigation**
+
+* All controls have **ARIA labels** and respond to `Enter`, `Space`, and `Escape`.
+* The menu supports full **keyboard navigation**, including going back to the main menu button when closing a submenu.
+* External links are identified as **opening in a new tab**, ensuring users know what to expect.
+
+#### **Game Context and Landmarks**
+
+* The root container describes **game overview information**, including:
+
+  * Player names, ratings, and result.
+  * Variation branches clearly labeled for screen readers.
+  * Player profile links include descriptive context, such as “View player profile for Magnus Carlsen (rating 2850).”
+* Navigation landmarks allow jumping between:
+
+  * The **Chessboard**,
+  * **Game Navigation buttons** (Next, Previous, Start, End), and
+  * The **Move List and Comments** section.
+* These landmarks can be discovered using NVDA’s `D` and `Shift+D` commands.
+
+### 10.3. **User Experience**
+
+The accessible PGN Viewer has been successfully tested with **VoiceOver on macOS** and **NVDA on Windows**, demonstrating strong compatibility with the most common screen readers.
+It provides a clear and predictable experience for non-visual users, thanks to its use of **standard web elements** and ARIA roles.
+
+The viewer presents the chessboard as a **semantic HTML table**, which differs from the interactive grid used in the **Lichess Blind Mode (NVUI)**.
+In Blind Mode, users interact with a custom “non-visual user interface” that allows keyboard shortcuts and instant move exploration.
+By contrast, the PGN Viewer focuses on simplicity and universal accessibility: it relies on the native table navigation commands of screen readers, ensuring that the same experience works consistently across any website where a game is embedded.
+
+Early user feedback confirmed that:
+
+* The viewer is **highly functional and reliable**, especially in **browse mode**, where users can explore the chessboard cell by cell using standard screen reader table navigation commands such as `Ctrl + Alt + Arrow keys`.
+* In **focus mode**, users can replay the game move by move with the **Left and Right Arrow keys**, hearing the move number, color, notation, and any available comments or annotations.
+* While it does not yet replicate the full **Lichess Blind Mode experience**—which includes advanced shortcuts, custom navigation, and deeper integration—the PGN Viewer already provides a **solid and accessible way** to study and enjoy annotated games anywhere on the web.
+
+Overall, this viewer offers a familiar and consistent web experience, making it easy for blind players to read, replay, and analyze games shared outside the main Lichess environment.
+
+The accessible PGN Viewer represents a **major advancement in inclusive web-based chess tools**.
+By adopting a fully semantic and screen-reader-friendly structure, it allows blind and visually impaired users to follow games, read commentary, and navigate moves directly within web pages or articles—**without requiring any visual interaction or special setup**.
+
+## 11. Contributions and feedback
 
 Accessibility on Lichess is a community effort, and your input makes a real difference. One of the best ways to stay involved is by joining the [**Blind Mode Team**](https://lichess.org/team/the-blind-mode-team). This team connects blind and visually impaired players with Lichess developers, providing a dedicated space for accessibility discussions, feature requests, and testing. The forum is open to all, membership requests are automatically accepted, and updates about ongoing or upcoming changes are posted regularly. By joining, you not only stay informed but also gain a direct channel to shape the future of Blind Mode.
 

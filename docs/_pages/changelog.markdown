@@ -4,14 +4,30 @@ title: What's new
 permalink: /changelog
 ---
 
-Last modified: September 3rd, 2025
 
 ## What's New in Blind Mode
 
+**Last Update:** the 22nd of October, 2025.
+
 [Click here if you want to read a comprehensive tutorial on how to get the best out of using blind mode to play chess on Lichess](https://lichess.org/page/blind-mode-tutorial)
 
-The following section highlights the latest changes and improvements made to Lichess's blind mode, also known as the non-visual user interface (NVUI). It is intended for users who are already familiar with how NVUI works and want to stay up to date with ongoing enhancements. Whether it's a new feature, a bug fix, or a small accessibility improvement, each item is listed with a brief description and a link to the relevant pull request for those interested in technical details. The most recent updates appear at the top of the list, making it easy to check what's new. You can skip to the next heading to begin reading the tutorial.
+The following section highlights the latest changes and improvements made to Lichess's blind mode, also known as the non-visual user interface (NVUI). It is intended for users who are already familiar with how NVUI works and want to stay up to date with ongoing enhancements. Whether it's a new feature, a bug fix, or a small accessibility improvement, each item is listed with a brief description and a link to the relevant pull request for those interested in technical details. The most recent updates appear at the top of the list, making it easy to check what's new.
 
+* **Made the PGN Viewer fully accessible to screen reader users:**
+  **[PR #56](https://github.com/lichess-org/pgn-viewer/pull/56)**
+
+  * Introduced an **invisible accessible chessboard** using a standard HTML table structure for full 64-square navigation.
+  * Added **live move announcements**, including notation, annotations, and comments.
+  * Implemented **ARIA labels**, roles, and landmarks for all controls, ensuring complete keyboard navigation.
+  * Provides a consistent experience across browsers and screen readers (tested with NVDA and VoiceOver).
+  * Differs from **Lichess Blind Mode**, as it uses standard HTML rather than the custom NVUI interface, making embedded games on external sites fully accessible.
+
+* **Always display all user actions in NVUI profiles:**
+  **[PR #18398](https://github.com/lichess-org/lila/pull/18398)**
+
+  * Fixed an issue where the **“More” button in user profiles** was not accessible with VoiceOver.
+  * All user actions (such as **follow**, **challenge**, and **message**) are now **always visible and directly accessible** to screen reader users.
+   
 * **Created official Blind Mode Team for community feedback and collaboration:**
   **[Blind Mode Team on Lichess](https://lichess.org/team/the-blind-mode-team)**
 

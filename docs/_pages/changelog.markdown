@@ -7,11 +7,19 @@ permalink: /changelog
 
 ## What's New in Blind Mode
 
-**Last Update:** the 22nd of October, 2025.
+**Last Update:** the 29th of April, 2026.
 
 [Click here if you want to read a comprehensive tutorial on how to get the best out of using blind mode to play chess on Lichess](https://lichess.org/page/blind-mode-tutorial)
 
 The following section highlights the latest changes and improvements made to Lichess's blind mode, also known as the non-visual user interface (NVUI). It is intended for users who are already familiar with how NVUI works and want to stay up to date with ongoing enhancements. Whether it's a new feature, a bug fix, or a small accessibility improvement, each item is listed with a brief description and a link to the relevant pull request for those interested in technical details. The most recent updates appear at the top of the list, making it easy to check what's new.
+
+* **Touchscreen support for analysis and puzzles in Blind Mode:**  
+  **[PR #20169](https://github.com/lichess-org/lila/pull/20169)**
+
+  * Extended the accessible touchscreen board experience from gameplay to **analysis** and **puzzle** modes.  
+  * On Android and iOS devices with screen readers, you can now **explore the board by touch**, **select and move pieces with double‑tap**, and **navigate move history** using accessible on‑screen buttons.  
+  * Added a row of buttons below the board for **previous/next move**, **flip board**, **engine evaluation**, and **view best move** – all fully labeled for screen readers.  
+  * This feature requires the **Page Layout** setting to be **“Board/Actions”** (which has to be enabled only from within the game view).
 
 * **Made the PGN Viewer fully accessible to screen reader users:**
   **[PR #56](https://github.com/lichess-org/pgn-viewer/pull/56)**
@@ -238,4 +246,6 @@ The following section highlights the latest changes and improvements made to Lic
   **[PR #16864](https://github.com/lichess-org/lila/pull/16864)**
 
 * **Fixed Blind Mode in Broadcasts:** Resolved a bug that caused the blind mode  to crash during broadcast games. This fix ensures blind mode works correctly when viewing live broadcasts. **[PR #16856](https://github.com/lichess-org/lila/pull/16856)**
+
+
 

@@ -7,7 +7,7 @@ permalink: /tutorial
 
 ## Introduction
 
-**Last Update:** the 22nd of October, 2025.
+**Last Update:** the 29th of April, 2026.
 
 [click here if you want to learn about the recent changes and updates to the blind mode on Lichess](https://lichess.org/page/blind-mode-changelog)
 
@@ -194,7 +194,13 @@ If you're new to Lichess, select **“Register”** to create an account. You’
 
 * A **username**: Choose something appropriate and family-friendly. It **cannot be changed later**, and accounts with offensive names may be closed.
 * A **password**: Lichess will provide feedback on password strength as you type.
-* An **email address**: This is optional but highly recommended, as it allows you to reset your password if needed.
+* An **email address**: This is **required**, as you will receive a verification link to activate your account.
+
+After filling in your information, agree to the terms and press **Register**. You should then receive an email at the address you entered.
+
+Open the email and click the link under **“click the link to enable your lichess account”** to activate your account and start using Lichess.
+
+If there’s a mistake in your email, the page provides a field to correct it. If the email doesn’t arrive, wait a few minutes and check your spam/junk folder. If it still doesn’t appear, there is a support page to help resolve the issue—though in most cases, the email arrives without problems.
 
 Before completing registration, you must:
 
@@ -202,24 +208,24 @@ Before completing registration, you must:
 * **Agree** to be respectful toward other players.
 * **Agree** not to create multiple accounts unless allowed by the Terms of Service.
 * **Agree** to follow all Lichess rules and policies.
-* **Check the “I am human” box** to confirm you're not a bot (this uses **hCaptcha**, which is partially accessible and offers options for visually impaired users).
 
-Registration is completely free and takes just a minute. Once completed, you can start playing right away.
+#### A Note on Verification Accessibility
 
-#### A Note on hCaptcha Accessibility
+During registration, Lichess now uses **Cloudflare Turnstile** to confirm that you're human. This is a modern alternative to traditional CAPTCHAs and is designed to be more user-friendly and less intrusive.
 
-During registration, Lichess uses **hCaptcha** to confirm that you're human. This is a common security measure to prevent spam or automated account creation.
+In most cases, Turnstile works **automatically in the background** and does not require any interaction. You may simply see a message like **"Verifying you are human"**, and the process completes within a few seconds.
 
-While hCaptcha is not fully accessible by default, it does offer an **accessibility mode** for screen reader users. If your browser has the **accessibility cookie** set, the challenge may be skipped automatically or presented in a more accessible way.
+For screen reader users, this is a significant improvement compared to older systems like hCaptcha:
 
-If you're using a screen reader and encounter difficulty:
+* There is usually **no puzzle or challenge** to solve.
+* The verification runs silently and does not interrupt the registration flow.
+* If interaction is required, it is typically a simple checkbox-style confirmation.
 
-* Look for a link or button labeled **"Accessibility options"** or **"I am human"**.
-* You may be redirected to [hcaptcha.com/accessibility](https://www.hcaptcha.com/accessibility) to register your browser for enhanced access.
+If you encounter any issues:
 
- Once registered, hCaptcha should remember your device and make future challenges easier to complete.
-
-If you continue to have issues, you can temporarily ask a sighted person for help just with the captcha step. After that, Lichess itself is fully accessible and can be used independently.
+* Wait a few seconds to allow the verification to complete automatically.
+* Ensure that JavaScript is enabled in your browser.
+* Try refreshing the page if the verification seems stuck.
 
 ---
 
@@ -765,9 +771,10 @@ Your goal is to play the common opening move **pawn to e4** using the board inte
 * If you want to know all the legal moves for a piece before committing, select the piece and press **`m`**.
 * If you want to move using the command field instead, press **`i`** to jump to the input form and type `e4`.
 
+
 ### 4.5 Playing on Touchscreen Devices
 
-Support for touchscreen devices has been newly introduced in Lichess Blind Mode. This is an early implementation, and feedback is very welcome to improve usability. Currently, only the **Playing a Game** mode supports touchscreen interaction — **Puzzle** and **Analysis** modes are not yet included.
+Support for touchscreen devices has been newly introduced in Lichess Blind Mode. This is an early implementation, and feedback is very welcome to improve usability.
 
 #### Layout Notice
 
@@ -1028,7 +1035,7 @@ One of the most exciting features of Lichess is the **Broadcasts** section, whic
 
 Watching live games gives players the chance to study **professional-level play** as it unfolds—move by move. It's a great way to **observe different styles**, **understand high-level decision making**, and see **how grandmasters handle pressure**. With Lichess’s accessible interface, blind and visually impaired users can enjoy this experience equally.
 
-### Accessing Broadcasts
+### 7.1. Accessing Broadcasts
 
 From the **top menu**, choose **“Watch”**, then activate the **“Broadcasts”** link. This takes you to a page with all currently running and upcoming tournament broadcasts, as well as **archives of past tournaments** that can be replayed at any time.
 
@@ -1036,7 +1043,7 @@ The **“Live Broadcasts”** section is under **heading level 1**. Use **browse
 
 Each listed tournament shows whether it is live or upcoming. When focused on a tournament name, **press the Up Arrow once** to hear how much time is left until it begins—or if it's currently in progress.
 
-### Following a Tournament Game
+### 7.2. Following a Tournament Game
 
 When you open a tournament broadcast, the first heading will typically be **“Study Details”** (heading level 1). Here, you can use **combo boxes** to choose exactly which game to follow. These may include:
 
@@ -1046,7 +1053,7 @@ When you open a tournament broadcast, the first heading will typically be **“S
 
 Once you make your selections in the combo boxes, the page updates to load that particular game.
 
-### Viewing the Game
+### 7.3. Viewing the Game
 
 You’ll now see a **familiar interface**, similar to a regular game or analysis page:
 
@@ -1055,7 +1062,7 @@ You’ll now see a **familiar interface**, similar to a regular game or analysis
 * The evaluation bar and move suggestions provide insight into how the players are performing at every stage.
 * If the game is ongoing, moves will update **in real time**. If it has finished, you’ll also be able to see **inaccuracies, mistakes, and blunders**, with best move suggestions.
 
-### Tournament Details and Results
+### 7.4. Tournament Details and Results
 
 At the **bottom of the page**, there is another **heading level 1** titled **“Tournament Details”**, which includes:
 
@@ -1064,6 +1071,31 @@ At the **bottom of the page**, there is another **heading level 1** titled **“
 * External links to official websites or results pages
 
 Below this is a **ranking table** showing the **current standings** of all players in the event, sorted by performance. This table is fully accessible and readable with screen readers.
+
+### 7.4. Touchscreen Support in Analysis and Puzzle views 
+
+In addition to touchscreen gameplay, Lichess now extends the accessible chessboard experience to **analysis** and **puzzle** modes. This means you can review your past games, view broadcasts and  solve tactical puzzles using the same intuitive touchscreen gestures introduced for playing games.
+
+#### Enabling Touchscreen Support
+
+Touchscreen support for analysis and puzzles works automatically when two conditions are met:
+- You are using a touchscreen device (phone or tablet).
+- The **Page Layout** setting in your **Advanced Settings** is set to **"Board/Actions"** (i.e., board first, actions below). This setting is only available in the game view currently. If you set it correctly when playing a game or viewing any of your past games, it will be reflected automatically on puzzle and analysis views.
+
+> **Note:** The Page Layout setting is shared between all views. If you change it in the game view, it will also affect the others automatically. Also, this setting does not appear in the Broadcast interface, but it will be applied there based on your analysis page setting.
+
+Once the feature is enabled, you can:
+
+- **Explore the chessboard** by dragging your finger across the screen. Your screen reader will announce each square and the piece on it.
+- **Select and move pieces** using the same double‑tap gesture as in gameplay:
+  - Double‑tap a square containing a piece to select it.
+  - Double‑tap a valid destination square to make the move.
+- **Navigate move history**by selecting the on‑screen buttons:
+  - A row of buttons is added below the board, giving you quick access to **previous/next move**, **flip board**, **get engine evaluation**, and **view best move**.
+  - These buttons are fully labeled for screen readers and can be activated with a double‑tap.
+- **Get real‑time feedback** in puzzles: when you make a move, the interface will immediately tell you whether it was correct or not, and allow you to proceed to the next puzzle.
+
+This feature bridges a critical gap in the blind‑accessible chess ecosystem. Previously, you could play games on a touchscreen but then had to switch to a keyboard or desktop to review your games or solve puzzles. Now, the entire Lichess experience—playing, analyzing, and training—is accessible on the go, using only your phone or tablet and your screen reader.
 
 ## 8. Studies
 

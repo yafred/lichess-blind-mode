@@ -151,7 +151,7 @@ To use Lichess effectively in Blind Mode, you’ll need:
   * [NVDA (Windows)](https://nvaccess.org)
   * [JAWS (Windows)](https://www.freedomscientific.com/Products/software/JAWS/)
   * [VoiceOver (macOS/iOS)](https://support.apple.com/guide/voiceover/welcome/mac)
-  * [Orca (Linux)](https://wiki.gnome.org/Projects/Orca)
+  * [Orca (Linux)](https://orca.gnome.org/)
 * A **modern web browser**, like Chrome, Firefox, Safari, or Edge
 * A **stable internet connection**
 * Familiarity with **keyboard navigation** on the web

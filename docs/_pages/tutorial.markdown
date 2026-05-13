@@ -120,7 +120,7 @@ VoiceOver offers two ways to navigate:
   `VO + Command + J`
 
 * **Go to the top of the page:**
-  `VO + Fn + Left Arrow` 
+  `VO + Fn + Left Arrow`
 
 * **Find text on the page:**
   `Command + F`
@@ -151,7 +151,7 @@ To use Lichess effectively in Blind Mode, you’ll need:
   * [NVDA (Windows)](https://nvaccess.org)
   * [JAWS (Windows)](https://www.freedomscientific.com/Products/software/JAWS/)
   * [VoiceOver (macOS/iOS)](https://support.apple.com/guide/voiceover/welcome/mac)
-  * [Orca (Linux)](https://wiki.gnome.org/Projects/Orca)
+* [Orca (Linux)](https://orca.gnome.org/)
 * A **modern web browser**, like Chrome, Firefox, Safari, or Edge
 * A **stable internet connection**
 * Familiarity with **keyboard navigation** on the web
@@ -407,9 +407,9 @@ Displays player names and ratings:
 **Example:**
 
 ```
-White: YourUserName  1500  
-Black: TheirUserName 1556 
-Casual correspondence  
+White: YourUserName  1500
+Black: TheirUserName 1556
+Casual correspondence
 ```
 
 #### Heading Level 2: Move List
@@ -646,7 +646,7 @@ In addition to moves, you can type a variety of **single-letter or word-based co
   Example: `a8=R` promotes a pawn to a rook on a8, `b1=k` promotes to a knight.
 
   ⚠️ Commands must be typed exactly and followed by **Enter**. Some screen readers may not announce repeated output if the command result hasn’t changed. If you typed any incorrect command, you will get a message telling you that this is an invalid move.
-  
+
 The command input field is especially useful for players who use a **physical chessboard** to feel the position and decide their moves by touch. Once they’ve chosen a move, they can quickly type it into the field using standard algebraic notation. It’s also ideal for players who rely on **mental visualization**, sometimes called **blindfold chess**, where they track the game in their mind and enter moves directly.
 
 For example, when you start the game and type `e4`, the move is submitted instantly, and if you're playing against the computer, it will respond almost immediately. Since it doesn't think like a human, it usually plays its reply without delay. However, if you're playing against a human opponent, you might have to wait — especially in slower time controls or as the game becomes more complex.
@@ -1072,7 +1072,7 @@ At the **bottom of the page**, there is another **heading level 1** titled **“
 
 Below this is a **ranking table** showing the **current standings** of all players in the event, sorted by performance. This table is fully accessible and readable with screen readers.
 
-### 7.4. Touchscreen Support in Analysis and Puzzle views 
+### 7.4. Touchscreen Support in Analysis and Puzzle views
 
 In addition to touchscreen gameplay, Lichess now extends the accessible chessboard experience to **analysis** and **puzzle** modes. This means you can review your past games, view broadcasts and  solve tactical puzzles using the same intuitive touchscreen gestures introduced for playing games.
 
